@@ -1,5 +1,7 @@
 {
     "port": 78965,
-    "ip": "",
-    "key": "zavdDvdZnjhh4egnrtjr5ggeg5azdve3aze52azrf2grgr"
+    "host": "",
+    "key": "zavdDvdZnjhh4egnrtjr5ggeg5azdve3aze52azrf2grgr",
+    "max_size": 2048,
+    "version": 1
 }
