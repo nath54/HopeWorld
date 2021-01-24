@@ -6,14 +6,14 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.772549, 0.733333, 0.937255, 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 65
 outline_size = 1
 outline_color = Color( 0.85098, 0.854902, 0.929412, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.764706, 0.854902, 0.921569, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
@@ -22,7 +22,7 @@ corner_radius_bottom_left = 35
 shadow_size = 5
 shadow_offset = Vector2( 6, 5 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -31,7 +31,7 @@ corner_radius_bottom_left = 15
 shadow_size = 3
 shadow_offset = Vector2( 2, 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 42
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
@@ -71,7 +71,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 172.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Connect to HopeWorld :"
 align = 1
@@ -97,7 +97,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -59.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,7 +110,7 @@ margin_left = 72.4299
 margin_top = -145.001
 margin_right = -60.5701
 margin_bottom = -90.0005
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -123,7 +123,7 @@ margin_left = 69.2431
 margin_top = -1.81158
 margin_right = -63.7569
 margin_bottom = 53.1884
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -135,7 +135,7 @@ margin_left = -94.5404
 margin_top = -33.6281
 margin_right = 89.4596
 margin_bottom = 20.3719
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Pseudo :"
 __meta__ = {
@@ -149,7 +149,7 @@ margin_left = -110.979
 margin_top = 104.212
 margin_right = 126.021
 margin_bottom = 158.212
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Password :"
 __meta__ = {

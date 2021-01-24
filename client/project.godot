@@ -16,11 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Client"
+run/main_scene="res://menu/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://global/Global.tscn"
+
+[locale]
+
+translations=PoolStringArray( "res://translation_data/traductions.en.translation", "res://translation_data/traductions.fr.translation", "res://translation_data/traductions.de.translation", "res://translation_data/traductions.es.translation", "res://translation_data/traductions.ja.translation", "res://translation_data/traductions.zh.translation" )
 
 [rendering]
 
