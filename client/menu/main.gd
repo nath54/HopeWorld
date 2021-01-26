@@ -4,13 +4,14 @@ extends Control
 func _ready():
 	$scene_intro/AnimationPlayer.play("Camera_deb")
 
-
 func _on_Bouton_Connecter_pressed():
 	$Princ.hide();
 	var scene = preload("res://menu/connexion.tscn")
 	var instance = scene.instance()
-	add_child(instance)
-
+	$Screen.add_child(instance)
 
 func _on_AudioStreamPlayer_finished():
 	$AudioStreamPlayer.play()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	$scene_intro/AnimationPlayer.play("cam_mouv")

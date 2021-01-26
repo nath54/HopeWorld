@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Client"
+config/name="HopeWorldClient"
 run/main_scene="res://menu/main.tscn"
 config/icon="res://icon.png"
 

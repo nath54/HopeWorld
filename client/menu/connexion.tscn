@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/ja-jp.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/zh-cn.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menu/connexion.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 65
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.211765, 0.262745, 0.301961, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
@@ -19,7 +20,7 @@ corner_radius_bottom_left = 35
 shadow_size = 5
 shadow_offset = Vector2( 6, 5 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -28,7 +29,7 @@ corner_radius_bottom_left = 15
 shadow_size = 3
 shadow_offset = Vector2( 2, 2 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 use_filter = true
 font_data = ExtResource( 1 )
@@ -49,9 +50,18 @@ shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 32
+size = 25
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.0745098, 0.0862745, 0.270588, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2( 2, 2 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 24
@@ -61,6 +71,7 @@ font_data = ExtResource( 1 )
 [node name="menu_connexion" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,7 +89,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 172.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Connect to HopeWorld :"
 align = 1
@@ -103,8 +114,8 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="form"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -59.0
-custom_styles/panel = SubResource( 3 )
+margin_top = -118.0
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,11 +125,11 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 70.4299
-margin_top = -152.001
+margin_top = -216.001
 margin_right = -62.5701
-margin_bottom = -97.0005
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 8 )
+margin_bottom = -161.001
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
@@ -133,11 +144,11 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 72.4299
-margin_top = -25.001
+margin_top = -89.001
 margin_right = -60.5701
-margin_bottom = 29.9995
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 8 )
+margin_bottom = -34.0005
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 secret = true
@@ -150,9 +161,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -94.5404
-margin_top = -40.6281
+margin_top = -104.628
 margin_right = 89.4596
-margin_bottom = 13.3719
+margin_bottom = -50.6281
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pseudo :"
@@ -164,9 +175,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -110.979
-margin_top = 83.212
+margin_top = 19.212
 margin_right = 126.021
-margin_bottom = 137.212
+margin_bottom = 73.212
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Password :"
@@ -191,11 +202,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="form"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -139.0
+margin_top = -127.0
+margin_right = 158.0
+margin_bottom = -79.0
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "create an account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CheckBox" type="CheckBox" parent="form"]
-margin_left = 135.572
-margin_top = 215.857
-margin_right = 401.572
-margin_bottom = 253.857
+margin_left = 134.572
+margin_top = 151.857
+margin_right = 400.572
+margin_bottom = 189.857
 custom_fonts/font = SubResource( 9 )
 text = "Keep me connected"
 expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="form/Button2" to="." method="_on_Button2_pressed"]

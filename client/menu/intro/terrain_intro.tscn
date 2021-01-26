@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menu/intro/terrain_intro_2.tscn" type="PackedScene" id=1]
+
+[node name="Terrain" type="Spatial"]
+
+[node name="terrain_intro_2" parent="." instance=ExtResource( 1 )]
