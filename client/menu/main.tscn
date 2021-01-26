@@ -1,29 +1,94 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://menu/main.gd" type="Script" id=1]
 [ext_resource path="res://fonts/zh-cn.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://blender_hopeworld/exports/terrain_intro.escn" type="PackedScene" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://blender_hopeworld/exports/oak.escn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/ja-jp.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://sound/music/Soliloquy.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 55
-outline_color = Color( 0.85098, 0.854902, 0.929412, 1 )
+size = 65
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Camera_deb"
+length = 5.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Camera")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray(  )
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 0.378929, 0.435276 ),
+"update": 0,
+"values": [ Vector3( 6.60665, 2.58332, -1.45224 ), Vector3( 1.16333, 1.62208, -0.638089 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 0.378929 ),
+"update": 0,
+"values": [ Vector3( -10.377, 90, -1.70936e-06 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
 
 [node name="menu_connexion" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.5874
-margin_bottom = 1.5874
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Titre_bienvenue" type="Label" parent="."]
+[node name="Princ" type="Control" parent="."]
 anchor_right = 1.0
-margin_bottom = 250.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Titre_bienvenue" type="Label" parent="Princ"]
+anchor_right = 1.0
+margin_right = -7.0
+margin_bottom = 283.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "bienvenue"
 align = 1
 valign = 1
@@ -31,11 +96,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="text_cliquer" type="Label" parent="."]
+[node name="text_cliquer" type="Label" parent="Princ"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -135.0
+margin_right = 2.0
+custom_fonts/font = SubResource( 6 )
 text = "cliquer lancer jeu"
 align = 1
 valign = 1
@@ -43,12 +110,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="scene_intro" type="Spatial" parent="."]
-
-[node name="Bouton_Connecter" type="TextureButton" parent="."]
+[node name="Bouton_Connecter" type="TextureButton" parent="Princ"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Bouton_Connecter" to="." method="_on_Bouton_Connecter_pressed"]
+
+[node name="scene_intro" type="Spatial" parent="."]
+
+[node name="terrain_intro" parent="scene_intro" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="scene_intro"]
+transform = Transform( -4.00671e-07, -0.0636594, 0.997972, -1.04721e-08, 0.997972, 0.0636594, -1, 1.50556e-08, -4.00525e-07, 1.42198, 1.66776, -0.676775 )
+environment = ExtResource( 4 )
+current = true
+fov = 60.0
+near = 0.01
+far = 50.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="scene_intro"]
+transform = Transform( 0.901334, 0.402839, -0.159113, -0.209116, 0.726452, 0.654628, 0.379298, -0.556765, 0.739016, -5.18582, 8.1373, 6.88304 )
+light_energy = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="scene_intro"]
+anims/Camera_deb = SubResource( 2 )
+
+[node name="oak" parent="scene_intro" instance=ExtResource( 5 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.219104, 1.21382, -1.33049 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -19.855
+autoplay = true
+[connection signal="pressed" from="Princ/Bouton_Connecter" to="." method="_on_Bouton_Connecter_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
