@@ -1,5 +1,7 @@
 extends Node
 
+############## WEBSOCKETS ##############
+
 var ip = "127.0.0.1"#"192.168.1.53"
 var port = 7896
 
@@ -18,8 +20,6 @@ func _ready():
 	if err != OK:
 		print("Unable to connect to ", SOCKET_URL)
 		set_process(false)
-	else:
-		_send({"test":"test"})
 
 func _process(delta):
 	_client.poll()
@@ -36,8 +36,9 @@ func _on_connected(proto = ""):
 	print("Connected with protocol: ", proto)
 
 func _on_data():
-	var payload = JSON.parse(_client.get_peer(1).get_packet().get_string_from_utf8()).result
-	print("Received data: ", payload)
+	var data = JSON.parse(_client.get_peer(1).get_packet().get_string_from_utf8()).result
+	# print("Received data: ", payload)
+	analyse_data(data)
 
 func _send(data, is_json=true):
 	if is_json:
@@ -45,11 +46,34 @@ func _send(data, is_json=true):
 	_client.get_peer(1).put_packet(data.to_utf8())
 
 
+func analyse_data(data):
+	if "type" in data.keys():
+		if data["type"] == "connection_error":
+			alert("Error during connection", data["error"])
+		elif data["type"] == "connection_accepted":
+			pass
+		else:
+			print("Unsupported action: ", data)
+	else:
+		print("Unsupported data: ",data)
 
 
 
 
 
+############## INTERFACES ##############
+
+
+func alert(titre, message):
+	var res = load("res://menu/alert.tscn")
+	var alerte = res.instance()
+	alerte.titre.text = titre
+	alerte.message.text = message
+	get_tree().root.add_child(alerte)
+
+
+
+############## JEU ##############
 
 
 

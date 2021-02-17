@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://menu/main.gd" type="Script" id=1]
 [ext_resource path="res://fonts/zh-cn.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://menu/intro/terrain_intro.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://menu/menu_buttons.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/ja-jp.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://sound/music/Soliloquy.ogg" type="AudioStream" id=8]
 
@@ -151,6 +152,8 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Menu_Buttons" parent="." instance=ExtResource( 5 )]
 
 [node name="scene_intro" type="Spatial" parent="."]
 
