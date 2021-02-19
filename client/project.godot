@@ -28,6 +28,10 @@ Global="*res://global/Global.tscn"
 window/size/width=1280
 window/size/height=720
 
+[editor_plugins]
+
+enabled=PoolStringArray( "fast_fur_skin", "low_poly_terrain" )
+
 [locale]
 
 translations=PoolStringArray( "res://translation_data/traductions.en.translation", "res://translation_data/traductions.fr.translation", "res://translation_data/traductions.de.translation", "res://translation_data/traductions.es.translation", "res://translation_data/traductions.ja.translation", "res://translation_data/traductions.zh.translation" )
