@@ -12,6 +12,3 @@ func _on_Bouton_Connecter_pressed():
 
 func _on_AudioStreamPlayer_finished():
 	$AudioStreamPlayer.play()
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	$scene_intro/AnimationPlayer.play("cam_mouv")

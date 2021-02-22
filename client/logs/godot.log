@@ -1,0 +1,22 @@
+Godot Engine v3.2.3.stable.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GTX TITAN X/PCIe/SSE2
+ 
+Property name FastFurGrass/SelectiveTexure
+Property name FastFurGrass/SelectiveTexureScale
+Property name FastFurSkin/SkinLayers
+Property name FastFurSkin/CustomSkinMaterial
+Property name FastFurSkin/SkinColor
+Property name FastFurSkin/FurColorOffset
+Property name FastFurSkin/PatternTexture
+Property name FastFurSkin/Specular
+Property name FastFurSkin/Metalic
+Property name FastFurSkin/Roughness
+Property name FastFurSkin/FurLength
+Property name FastFurSkin/FurScale
+Property name FastFurSkin/FurShape
+Property name FastFurSkin/FurWindEffect
+Property name FastFurSkin/FurGravity
+Property name Terrain/Dimmensions
+Property name Terrain/DetailSize
+Property name Terrain/MaxHeight
+Property name Terrain/Noise
