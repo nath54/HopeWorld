@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "CPUParticles",
+"class": "LODCPUParticles",
+"language": "GDScript",
+"path": "res://addons/lod/lod_cpu_particles.gd"
+}, {
+"base": "OmniLight",
+"class": "LODOmniLight",
+"language": "GDScript",
+"path": "res://addons/lod/lod_omni_light.gd"
+}, {
+"base": "Particles",
+"class": "LODParticles",
+"language": "GDScript",
+"path": "res://addons/lod/lod_particles.gd"
+}, {
+"base": "Spatial",
+"class": "LODSpatial",
+"language": "GDScript",
+"path": "res://addons/lod/lod_spatial.gd"
+}, {
+"base": "SpotLight",
+"class": "LODSpotLight",
+"language": "GDScript",
+"path": "res://addons/lod/lod_spot_light.gd"
+} ]
 _global_script_class_icons={
-
+"LODCPUParticles": "res://addons/lod/lod_cpu_particles.svg",
+"LODOmniLight": "res://addons/lod/lod_omni_light.svg",
+"LODParticles": "res://addons/lod/lod_particles.svg",
+"LODSpatial": "res://addons/lod/lod_spatial.svg",
+"LODSpotLight": "res://addons/lod/lod_spot_light.svg"
 }
 
 [application]
@@ -30,7 +59,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "fast_fur_skin", "low_poly_terrain" )
+enabled=PoolStringArray( "fast_fur_skin", "lod", "low_poly_terrain" )
 
 [locale]
 
