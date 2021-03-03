@@ -4,10 +4,9 @@ extends Node
 
 var ip = "127.0.0.1"#"192.168.1.53"
 var port = 7896
-
-
 var SOCKET_URL = "ws://"+ip+":"+str(port)
-
+var joueur_id = null
+var connection_key = null
 var _client = WebSocketClient.new()
 
 func _ready():
@@ -51,7 +50,9 @@ func analyse_data(data):
 		if data["type"] == "connection_error":
 			alert("Error during connection", data["error"])
 		elif data["type"] == "connection_accepted":
-			pass
+			joueur_id = data["id"]
+			connection_key = data["key"]
+			get_tree().change_scene("res://game/init.tscn")
 		else:
 			print("Unsupported action: ", data)
 	else:

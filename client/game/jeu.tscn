@@ -1,0 +1,47 @@
+[gd_scene format=2]
+
+[node name="Jeu" type="Spatial"]
+
+[node name="Monde" type="Spatial" parent="."]
+
+[node name="Map" type="Spatial" parent="Monde"]
+
+[node name="Objets" type="Spatial" parent="Monde"]
+
+[node name="Ennemis" type="Spatial" parent="Monde"]
+
+[node name="Pnjs" type="Spatial" parent="Monde"]
+
+[node name="Persos" type="Spatial" parent="Monde"]
+
+[node name="Menus" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_pause" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Menu_pause"]
+margin_right = 379.0
+margin_bottom = 722.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Menus/Menu_pause/VBoxContainer"]
+margin_right = 379.0
+
+[node name="GridContainer" type="GridContainer" parent="Menus/Menu_pause/VBoxContainer"]
+margin_top = 4.0
+margin_right = 379.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
