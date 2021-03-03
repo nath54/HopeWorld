@@ -8,4 +8,4 @@ func intro():
 
 func fin_intro():
 	Global._send({"type": "intro_finie"})
-	get_tree().change_scene()
+	get_tree().change_scene("res://game/jeu.tscn")
