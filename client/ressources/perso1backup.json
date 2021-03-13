@@ -1,0 +1,56 @@
+{
+  "manuellab_vers": [
+    1,
+    7,
+    8,
+    50
+  ],
+  "structural": {
+    "Arms_UpperarmMass": 0.71,
+    "Pelvis_Length": 0.56,
+    "Legs_UpperlegsMass": 0.62,
+    "Neck_Size": 1.0,
+    "Legs_LowerlegsMass": 0.71,
+    "Legs_UpperlegSize": 0.59,
+    "Feet_Size": 1.0,
+    "Shoulders_Mass": 0.77,
+    "Legs_UpperlegLength": 0.47,
+    "Arms_ForearmMass": 0.92,
+    "Torso_Length": 0.6,
+    "Pelvis_Size": 0.56,
+    "Torso_Vshape": 0.8,
+    "Torso_SizeX": 0.71,
+    "Legs_LowerlegSize": 0.62,
+    "Legs_LowerlegLength": 0.37,
+    "Chin_SizeZ": 1.0,
+    "Head_Size": 0.86,
+    "Eyebrows_PosZ": 0.0,
+    "Eyes_PosX": 0.0,
+    "Head_SizeX": 0.17,
+    "Eyes_SizeZ": 0.0,
+    "Jaw_Prominence": 0.77
+  },
+  "metaproperties": {
+    "last_character_age": 0.0,
+    "character_age": 0.0,
+    "last_character_mass": 0.0,
+    "character_mass": 0.0,
+    "last_character_tone": 0.0,
+    "character_tone": 0.0
+  },
+  "materialproperties": {
+    "skin_value": 1.0,
+    "skin_saturation": 0.4943,
+    "skin_hue": 0.5,
+    "skin_oil_size": 0.8506,
+    "skin_oil_val": 0.5,
+    "skin_secondary_val": 0.3,
+    "skin_secondary_size": 0.0,
+    "skin_outline_val": 1.0,
+    "skin_outline_size": 0.9685,
+    "eyes_hue": 0.6034,
+    "eyes_reflection": 1.0,
+    "eyes_value": 1.0,
+    "eyes_saturation": 1.0
+  }
+}

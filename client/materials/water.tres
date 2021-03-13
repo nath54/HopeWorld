@@ -21,5 +21,5 @@ shader_param/foam_cutoff = 1.0
 shader_param/foam_color = Color( 1, 1, 1, 1 )
 shader_param/displacement_strength = 0.25
 shader_param/depth_distance = 1.25
-shader_param/movement_direction = Vector2( 2, 2 )
+shader_param/movement_direction = Vector2( 1, 1 )
 shader_param/displacement_noise = SubResource( 2 )
