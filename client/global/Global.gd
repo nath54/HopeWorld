@@ -6,9 +6,10 @@ var pause = false
 
 ############## WEBSOCKETS ##############
 
-var ip = "127.0.0.1"#"192.168.1.53"
-var port = 7896
-var SOCKET_URL = "ws://"+ip+":"+str(port)
+# var ip = "127.0.0.1"#"192.168.1.53"
+# var port = 7896
+# var SOCKET_URL = "ws://"+ip+":"+str(port)
+var SOCKET_URL = "ws://192.168.1.53:7896"
 var joueur_id = null
 var connection_key = null
 var _client = WebSocketClient.new()
