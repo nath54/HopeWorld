@@ -1,5 +1,9 @@
 extends Node
 
+############## GAME ##############
+
+var pause = false
+
 ############## WEBSOCKETS ##############
 
 var ip = "127.0.0.1"#"192.168.1.53"
@@ -8,6 +12,8 @@ var SOCKET_URL = "ws://"+ip+":"+str(port)
 var joueur_id = null
 var connection_key = null
 var _client = WebSocketClient.new()
+
+var is_connection = false
 
 func _ready():
 	_client.connect("connection_closed", self, "_on_connection_closed")
@@ -19,6 +25,7 @@ func _ready():
 	if err != OK:
 		print("Unable to connect to ", SOCKET_URL)
 		set_process(false)
+		is_connection = false
 
 func _process(delta):
 	_client.poll()
@@ -26,13 +33,16 @@ func _process(delta):
 func _on_connection_error():
 	print("There was an error")
 	set_process(false)
+	is_connection = false
 
 func _on_connection_closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
+	is_connection = false
 
 func _on_connected(proto = ""):
 	print("Connected with protocol: ", proto)
+	is_connection = true
 
 func _on_data():
 	var data = JSON.parse(_client.get_peer(1).get_packet().get_string_from_utf8()).result
@@ -59,9 +69,6 @@ func analyse_data(data):
 		print("Unsupported data: ",data)
 
 
-
-
-
 ############## INTERFACES ##############
 
 
@@ -76,5 +83,8 @@ func alert(titre, message):
 
 ############## JEU ##############
 
+func _input(event):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 
 

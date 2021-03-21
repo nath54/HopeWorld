@@ -12,12 +12,16 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	
+	if player.en_pause:
+		return
+
 	if event is InputEventMouseMotion:
 		mouseDelta = event.relative;
 
 func _process(delta):
-	
+	if player.en_pause:
+		return
+
 	var rot = Vector3(mouseDelta.y, mouseDelta.x, 0) * lookSensitivity * delta
 	
 	rotation_degrees.x += rot.x

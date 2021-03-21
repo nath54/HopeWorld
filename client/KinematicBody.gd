@@ -1,20 +1,20 @@
 extends KinematicBody
 
+var en_pause = false
 
 var colors = [Color(1.0, 0.0, 0.0, 1.0),
 		  Color(0.0, 1.0, 0.0, 1.0),
 		  Color(0.0, 0.0, 1.0, 0.0)]
 
-var curHp : int = 10
-var maxHp : int = 10
+var vie : int = 100
+var vie_tot : int = 100
 var damage : int = 1
 
 var attackRate : float = 0.3
-
 var lastAttackTime : int = 0
 
-var moveSpeed : float = 5.0
-var jumpForce : float = 10.0
+var moveSpeed : float = 17.0
+var jumpForce : float = 6.0
 var gravity : float = 15.0
 
 var vel : Vector3 = Vector3()
@@ -28,9 +28,14 @@ func _ready():
 	var mat = SpatialMaterial.new();
 	mat.albedo_color = color;
 	$Visuals/MeshInstance.set_surface_material(0, mat);
+	#ui
+	$player_ui.player = self
+	$player_ui.set_life()
 	
 func _physics_process(delta):
-	
+	if en_pause:
+		return
+
 	vel.x = 0
 	vel.z = 0
 	
@@ -65,7 +70,9 @@ func _physics_process(delta):
 	# move along the current velocity
 	vel = move_and_slide(vel, Vector3.UP)
 
+func pause():
+	en_pause = true
 
-
-
+func resume():
+	en_pause = false
 
