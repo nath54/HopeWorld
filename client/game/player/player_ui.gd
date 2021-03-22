@@ -6,20 +6,25 @@ func set_life():
 	if player == null:
 		return
 	
-	$in_game/life.value = int((player.vie/player.vie_tot)*100.0)
-	$in_game/life/Label.text = str(player.vie)+"/"+str(player.vie_tot)
+	$in_game/VBoxContainer/Control/life.value = int((player.vie/player.vie_tot)*100.0)
+	$in_game/VBoxContainer/Control/life/Label.text = str(player.vie)+"/"+str(player.vie_tot)
+
+func set_stamina():
+	if player == null:
+		return
+	$in_game/VBoxContainer/Control2/stamina.value = int((player.stamina/player.stamina_max)*100.0)
 
 func _input(event):
 	if Input.is_action_just_pressed("menu"):
 		if Global.pause:
 			Global.pause=false;
-			$pause_menu/side_panel.visible = false;
+			$pause_menu.visible = false;
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			if player != null:
 				player.resume()
 		else:
 			Global.pause=true;
-			$pause_menu/side_panel.visible = true;
+			$pause_menu.visible = true;
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			if player != null:
 				player.pause()

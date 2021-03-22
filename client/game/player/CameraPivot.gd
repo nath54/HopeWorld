@@ -8,6 +8,8 @@ var mouseDelta : Vector2 = Vector2()
 
 onready var player = get_parent()
 
+onready var base_position = $Camera.translation
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -30,5 +32,11 @@ func _process(delta):
 	player.rotation_degrees.y -= rot.y
 	
 	mouseDelta = Vector2()
-	
+
+func _physics_process(delta):
+	if $Ray_cam.get_collider()!=null:
+		var position = $Ray_cam.get_collision_point()
+		$Camera.translate(position)
+	elif $Camera.translation!=base_position:
+		$Camera.translate(base_position)
 

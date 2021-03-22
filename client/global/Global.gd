@@ -76,8 +76,7 @@ func analyse_data(data):
 func alert(titre, message):
 	var res = load("res://menu/alert.tscn")
 	var alerte = res.instance()
-	alerte.titre.text = titre
-	alerte.message.text = message
+	alerte.set_text(titre, message)
 	get_tree().root.add_child(alerte)
 
 

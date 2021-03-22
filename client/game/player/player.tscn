@@ -1,18 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://KinematicBody.gd" type="Script" id=1]
-[ext_resource path="res://game/player/CameraPivot.gd" type="Script" id=2]
+[ext_resource path="res://game/player/Camera.gd" type="Script" id=2]
 [ext_resource path="res://game/player/player_ui.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CylinderShape" id=6]
+radius = 0.835439
+height = 2.60733
 
-[sub_resource type="SphereShape" id=2]
-radius = 0.5
-
-[sub_resource type="CapsuleMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.0470588, 0.658824, 0.701961, 1 )
+[sub_resource type="CylinderMesh" id=7]
 
 [sub_resource type="CubeMesh" id=5]
 size = Vector3( 0.5, 0.5, 2 )
@@ -22,32 +18,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8391, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -5.24537e-08, 1.2, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 1 )
-
-[node name="CameraPivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66206, 0 )
-script = ExtResource( 2 )
-
-[node name="Camera" type="Camera" parent="CameraPivot"]
-transform = Transform( -1, 0, -3.25841e-07, -8.4334e-08, 0.965926, 0.258819, 3.14739e-07, 0.258819, -0.965926, 0, 1, -8 )
-current = true
-
-[node name="CameraBoom" type="SpringArm" parent="CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0200806, 2.5252 )
-shape = SubResource( 2 )
-spring_length = 14.0
-margin = 0.5
-
-[node name="Spatial" type="Spatial" parent="CameraPivot/CameraBoom"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.7863 )
+transform = Transform( 1, 0, 0, 0, 1, 8.74231e-09, 0, -8.74231e-09, 1, 0, 0, 0 )
+shape = SubResource( 6 )
 
 [node name="Visuals" type="Spatial" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="Visuals"]
-transform = Transform( 1, 0, 0, 0, -5.24537e-08, 1.2, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+transform = Transform( 0.842377, 0, 0, 0, 1.3, -1.13649e-08, 0, -6.1563e-09, 0.845035, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = null
 
 [node name="AttackRayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648015, 0.27486, 0.697037 )
@@ -63,3 +42,15 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="player_ui" parent="." instance=ExtResource( 3 )]
+
+[node name="Camroot" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="h" type="Spatial" parent="Camroot"]
+transform = Transform( 1, 0, 0, 0, 0.927184, -0.374607, 0, 0.374607, 0.927184, 0, 0, 0 )
+
+[node name="v" type="Spatial" parent="Camroot/h"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21657, -2.10896 )
+
+[node name="Camera" type="ClippedCamera" parent="Camroot/h/v"]
+transform = Transform( -1, -5.90584e-09, -7.97335e-08, -3.06655e-09, 0.999367, -0.0355629, 7.98931e-08, -0.0355629, -0.999367, 0.00576019, 0.548728, -3.2938 )
